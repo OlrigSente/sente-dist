@@ -1,0 +1,22 @@
+{
+  "id": "snt-core",
+  "title": "Sente Core",
+  "description": "Librairie de base pour la suite Sente.",
+  "version": "1.0.0",
+  "compatibility": {
+    "minimum": "13",
+    "verified": "13"
+  },
+  "authors": [
+    {
+      "name": "OlrigTheFox"
+    }
+  ],
+  "esmodules": [
+    "module.js"
+  ],
+  "url": "",
+  "license": "MIT",
+  "manifest": "https://olrigsente.github.io/sente-dist/snt-core/manifest.json",
+  "download": "https://olrigsente.github.io/sente-dist/snt-core/1.0.0/snt-core-v1.0.0.zip"
+}
