@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="fr">
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Sente — Catalogue</title>
+<style>
+  body{font-family:system-ui,Segoe UI,Arial,sans-serif;margin:0;padding:2rem;max-width:1100px}
+  h1{margin:0 0 1rem}
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1rem}
+  .card{border:1px solid #ddd;border-radius:12px;padding:1rem}
+  .tag{display:inline-block;background:#f0f0f0;border-radius:999px;padding:.15rem .6rem;margin-right:.4rem;font-size:.8rem}
+  .muted{color:#666}
+  .actions a{margin-right:.6rem}
+</style>
+<body>
+  <h1>Sente — Catalogue</h1>
+  <p class="muted">Modules <strong>publics</strong> (installables par URL) et <strong>premium</strong> (distribués via Foundry Premium).</p>
+
+  <h2 id="free">Modules publics</h2>
+  <div id="free-list" class="grid"></div>
+
+  <h2 id="premium">Modules premium</h2>
+  <div id="premium-list" class="grid"></div>
+
+<script>
+(async function(){
+  const base = location.pathname.replace(/\/+$/,"");
+  async function loadJSON(p){ const r=await fetch(p+"?v="+Date.now()); if(!r.ok) return {modules:[]}; return r.json(); }
+  const free = await loadJSON(base + "/catalog/free.json");
+  const premium = await loadJSON(base + "/catalog/premium.json");
+
+  function card(m, isFree){
+    const el = document.createElement("div");
+    el.className="card";
+    el.id = m.id;
+    el.innerHTML = `
+      <h3>${m.title} <span class="tag">${m.version}</span>${m.coreMin?`<span class="tag">core ≥ ${m.coreMin}</span>`:""}</h3>
+      <p class="muted">${(m.description||"").slice(0,220)}</p>
+      <div class="actions">
+        <a href="#${m.id}" title="Lien direct à la fiche">Ancre</a>
+        ${isFree ? `<a href="${m.manifest}" target="_blank" rel="noopener">Manifest</a>
+                    <a href="${m.download}" target="_blank" rel="noopener">ZIP</a>` 
+                  : `<span class="muted">Disponible via Foundry Premium</span>`}
+      </div>`;
+    return el;
+  }
+  const freeList = document.getElementById("free-list");
+  free.modules.forEach(m => freeList.appendChild(card(m, true)));
+
+  const premList = document.getElementById("premium-list");
+  premium.modules.forEach(m => premList.appendChild(card(m, false)));
+
+  // Gestion des ancres #<id> pour scroller jusqu'à la fiche
+  if (location.hash) {
+    const t = document.querySelector(location.hash);
+    if (t) t.scrollIntoView({behavior:"smooth",block:"start"});
+  }
+})();
+</script>
+</body>
+</html>
