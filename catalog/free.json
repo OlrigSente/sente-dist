@@ -1,6 +1,17 @@
 {
   "modules": [
     {
+      "id": "snt-core",
+      "title": "Sente Core",
+      "version": "1.0.9",
+      "description": "Librairie de base pour la suite Sente.",
+      "coreMin": "1.0.9",
+      "url": "https://olrigsente.github.io/sente-dist/#snt-core",
+      "manifest": "https://olrigsente.github.io/sente-dist/snt-core/manifest.json",
+      "download": "https://olrigsente.github.io/sente-dist/snt-core/1.0.9/snt-core-v1.0.9.zip",
+      "license": "MIT"
+    },
+    {
       "id": "snt-diceroll",
       "title": "Sente DiceRoll (test)",
       "version": "1.0.9",
