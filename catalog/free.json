@@ -1,0 +1,15 @@
+{
+  "modules": [
+    {
+      "id": "snt-diceroll",
+      "title": "Sente DiceRoll (test)",
+      "version": "1.0.9",
+      "description": "Module de test pour la suite Sente.",
+      "coreMin": "1.0.7",
+      "url": "https://olrigsente.github.io/sente-dist/#snt-diceroll",
+      "manifest": "https://olrigsente.github.io/sente-dist/snt-diceroll/manifest.json",
+      "download": "https://olrigsente.github.io/sente-dist/snt-diceroll/1.0.9/snt-diceroll-v1.0.9.zip",
+      "license": "MIT"
+    }
+  ]
+}
