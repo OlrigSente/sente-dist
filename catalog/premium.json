@@ -1,0 +1,12 @@
+{
+  "modules": [
+    {
+      "id": "snt-characterbuilder",
+      "title": "snt-characterbuilder",
+      "version": "1.0.11",
+      "description": "",
+      "coreMin": "1.0.9",
+      "url": "https://olrigsente.github.io/sente-dist/#snt-characterbuilder"
+    }
+  ]
+}
